@@ -1,0 +1,8 @@
+{% autoescape off %}
+Welcome to the login page!  
+Hello {{ name }}!  
+Please confirm your account by clicking the link below:  
+
+Confirmation Link:  
+http://{{ domain }}{% url 'activate' uid64=uid token=token %}
+{% endautoescape %}
