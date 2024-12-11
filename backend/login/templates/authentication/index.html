@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentication</title>
+  </head>
+  <body>
+    <!-- Displaying messages -->
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message:</strong> {{ message }}
+      <span aria-hidden="true">&times;</span>
+    </div>
+    {% endfor %}
+
+    <!-- Checking if user is authenticated -->
+    {% if user.is_authenticated %}
+      <h3>Hello {{ fname }}</h3>
+      <h4>You are logged in!</h4>
+
+      <a href="/signout" class="btn btn-primary">Sign Out</a>
+    {% else %}
+      <a href="/signin" class="btn btn-primary">Sign In</a>
+      <a href="/signup" class="btn btn-secondary">Sign Up</a>
+    {% endif %}
+  </body>
+</html>
